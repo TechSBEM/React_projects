@@ -1,6 +1,7 @@
 import { useState } from "react";
+import GameBoard from "./GameBoard";
 
-export default function Player({ initialName, symbol }) {
+export default function Player({ initialName, symbol, isActive }) {
   // Setting PlayerName
   const [PlayerName, setPlayerName] = useState(initialName);
   const [isEditing, setIsEditing] = useState(false);
@@ -20,17 +21,18 @@ export default function Player({ initialName, symbol }) {
   let editablePlayerName = <span className="player-name">{PlayerName}</span>;
   if (isEditing) {
     // Adding "value" to the input field to show it intial
-    editablePlayerName = <input type="text" value={PlayerName} onChange={handleChange()} required />;
+    editablePlayerName = <input type="text" value={PlayerName} onChange={handleChange} required />;
   }
 
   return (
-    <li>
+    <li className={isActive? 'active': undefined}>
       <span className="player">
         {editablePlayerName}
         <span className="player-symbol">{symbol}</span>
       </span>
       {/*Adding a ternary operation to alter between "save" and "edit"  */}
       <button onClick={handleIsEditing}>{isEditing ? "Save" : "Edit"}</button>
+
     </li>
   );
 }
