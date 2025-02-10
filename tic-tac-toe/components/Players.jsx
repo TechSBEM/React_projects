@@ -1,7 +1,7 @@
 import { useState } from "react";
 import GameBoard from "./GameBoard";
 
-export default function Player({ initialName, symbol, isActive }) {
+export default function Player({ initialName, symbol, isActive, onChangeName }) {
   // Setting PlayerName
   const [PlayerName, setPlayerName] = useState(initialName);
   const [isEditing, setIsEditing] = useState(false);
@@ -15,6 +15,10 @@ export default function Player({ initialName, symbol, isActive }) {
   function handleIsEditing() {
     // Making sure it changes like a bolean
     setIsEditing((editing) => !editing);
+
+    if(isEditing){ 
+    onChangeName(symbol,PlayerName)
+    }
   }
 
 
