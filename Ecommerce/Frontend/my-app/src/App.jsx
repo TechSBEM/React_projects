@@ -10,6 +10,7 @@ import Footer from "./Components/Footer/Footer";
 import men_banner from "./Components/Assets/banner_mens.png";
 import women_banner from "./Components/Assets/banner_women.png";
 import kid_banner from "./Components/Assets/banner_kids.png";
+import LoginSigup from "./Pages/LoginSigup";
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
           <Route path="/product" element={<Product />} />
           <Route path=":productId" element={<Product />} />
           <Route path="./cart" element={<Cart />} />
-          <Route path="./login" element={<Cart />} />
+          <Route path="/login" element={<LoginSigup />} />
         </Routes>
         <Footer />
       </BrowserRouter>
