@@ -7,7 +7,8 @@ function Item(props) {
     <div className="item">
       {/* Retrieving the productId when the product image is clicked */}
       <Link to={`/product/${props.id}`}>
-        <img src={props.image} alt="" />
+        {/* gettig to the top of the page when an image is clicked */}
+        <img onClick={window.scrollTo(0, 0)} src={props.image} alt="" />
       </Link>
       <p>{props.name}</p>
       <div className="item-prices">
